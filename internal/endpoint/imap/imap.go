@@ -56,7 +56,6 @@ type Endpoint struct {
 	listeners []net.Listener
 	Store     module.Storage
 
-	updater     imapbackend.BackendUpdater
 	tlsConfig   *tls.Config
 	listenersWg sync.WaitGroup
 
@@ -97,22 +96,10 @@ func (endp *Endpoint) Init(cfg *config.Map) error {
 		return err
 	}
 
-	var ok bool
-	endp.updater, ok = endp.Store.(imapbackend.BackendUpdater)
-	if !ok {
-		return fmt.Errorf("imap: storage module %T does not implement imapbackend.BackendUpdater", endp.Store)
-	}
-
 	if updBe, ok := endp.Store.(updatepipe.Backend); ok {
 		if err := updBe.EnableUpdatePipe(updatepipe.ModeReplicate); err != nil {
 			endp.Log.Error("failed to initialize updates pipe", err)
 		}
-	}
-
-	// Call Updates once at start, some storage backends initialize update
-	// channel lazily and may not generate updates at all unless it is called.
-	if endp.updater.Updates() == nil {
-		return fmt.Errorf("imap: failed to init backend: nil update channel")
 	}
 
 	addresses := make([]config.Endpoint, 0, len(endp.addrs))
@@ -191,10 +178,6 @@ func (endp *Endpoint) setupListeners(addresses []config.Endpoint) error {
 	}
 
 	return nil
-}
-
-func (endp *Endpoint) Updates() <-chan imapbackend.Update {
-	return endp.updater.Updates()
 }
 
 func (endp *Endpoint) Name() string {

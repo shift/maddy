@@ -66,12 +66,7 @@ func mboxesList(be module.Storage, ctx *cli.Context) error {
 		fmt.Fprintln(os.Stderr, "No mailboxes.")
 	}
 
-	for _, mbox := range mboxes {
-		info, err := mbox.Info()
-		if err != nil {
-			return err
-		}
-
+	for _, info := range mboxes {
 		if len(info.Attributes) != 0 {
 			fmt.Print(info.Name, "\t", info.Attributes, "\n")
 		} else {
@@ -126,13 +121,8 @@ func mboxesRemove(be module.Storage, ctx *cli.Context) error {
 		return err
 	}
 
-	mbox, err := u.GetMailbox(name)
-	if err != nil {
-		return err
-	}
-
 	if !ctx.Bool("yes,y") {
-		status, err := mbox.Status([]imap.StatusItem{imap.StatusMessages})
+		status, err := u.Status(name, []imap.StatusItem{imap.StatusMessages})
 		if err != nil {
 			return err
 		}
@@ -186,11 +176,6 @@ func msgsAdd(be module.Storage, ctx *cli.Context) error {
 		return err
 	}
 
-	mbox, err := u.GetMailbox(name)
-	if err != nil {
-		return err
-	}
-
 	flags := ctx.StringSlice("flag")
 	if flags == nil {
 		flags = []string{}
@@ -210,15 +195,16 @@ func msgsAdd(be module.Storage, ctx *cli.Context) error {
 		return errors.New("Error: Empty message, refusing to continue")
 	}
 
-	status, err := mbox.Status([]imap.StatusItem{imap.StatusUidNext})
+	status, err := u.Status(name, []imap.StatusItem{imap.StatusUidNext})
 	if err != nil {
 		return err
 	}
 
-	if err := mbox.CreateMessage(flags, date, &buf); err != nil {
+	if err := u.CreateMessage(name, flags, date, &buf, nil); err != nil {
 		return err
 	}
 
+	// TODO: Use APPENDUID
 	fmt.Println(status.UidNext)
 
 	return nil
@@ -248,7 +234,7 @@ func msgsRemove(be module.Storage, ctx *cli.Context) error {
 		return err
 	}
 
-	mbox, err := u.GetMailbox(name)
+	_, mbox, err := u.GetMailbox(name, true, nil)
 	if err != nil {
 		return err
 	}
@@ -291,7 +277,7 @@ func msgsCopy(be module.Storage, ctx *cli.Context) error {
 		return err
 	}
 
-	srcMbox, err := u.GetMailbox(srcName)
+	_, srcMbox, err := u.GetMailbox(srcName, true, nil)
 	if err != nil {
 		return err
 	}
@@ -331,7 +317,7 @@ func msgsMove(be module.Storage, ctx *cli.Context) error {
 		return err
 	}
 
-	srcMbox, err := u.GetMailbox(srcName)
+	_, srcMbox, err := u.GetMailbox(srcName, true, nil)
 	if err != nil {
 		return err
 	}
@@ -365,7 +351,7 @@ func msgsList(be module.Storage, ctx *cli.Context) error {
 		return err
 	}
 
-	mbox, err := u.GetMailbox(mboxName)
+	_, mbox, err := u.GetMailbox(mboxName, true, nil)
 	if err != nil {
 		return err
 	}
@@ -441,7 +427,7 @@ func msgsDump(be module.Storage, ctx *cli.Context) error {
 		return err
 	}
 
-	mbox, err := u.GetMailbox(mboxName)
+	_, mbox, err := u.GetMailbox(mboxName, true, nil)
 	if err != nil {
 		return err
 	}
@@ -485,7 +471,7 @@ func msgsFlags(be module.Storage, ctx *cli.Context) error {
 		return err
 	}
 
-	mbox, err := u.GetMailbox(name)
+	_, mbox, err := u.GetMailbox(name, true, nil)
 	if err != nil {
 		return err
 	}
@@ -507,5 +493,5 @@ func msgsFlags(be module.Storage, ctx *cli.Context) error {
 		panic("unknown command: " + ctx.Command.Name)
 	}
 
-	return mbox.UpdateMessagesFlags(ctx.IsSet("uid"), seq, op, flags)
+	return mbox.UpdateMessagesFlags(ctx.IsSet("uid"), seq, op, true, flags)
 }

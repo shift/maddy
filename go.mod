@@ -23,11 +23,12 @@ require (
 	github.com/emersion/go-sasl v0.0.0-20211008083017-0b9dcfb154ac
 	github.com/emersion/go-smtp v0.15.1-0.20220119142625-1c322d2783aa
 	github.com/foxcpp/go-dovecot-sasl v0.0.0-20200522223722-c4699d7a24bf
-	github.com/foxcpp/go-imap-backend-tests v0.0.0-20200617132817-958ea5829771
+	github.com/foxcpp/go-imap-backend-tests v0.0.0-20200802090154-7e6248c85a0e
 	github.com/foxcpp/go-imap-i18nlevel v0.0.0-20200208001533-d6ec88553005
-	github.com/foxcpp/go-imap-namespace v0.0.0-20200722130255-93092adf35f1
-	github.com/foxcpp/go-imap-sql v0.5.1-0.20210828123943-f74ead8f06cd
-	github.com/foxcpp/go-mockdns v1.0.0
+	github.com/foxcpp/go-imap-mess v0.0.0-20210718073110-d5eb968a0995
+	github.com/foxcpp/go-imap-namespace v0.0.0-20200802091432-08496dd8e0ed
+	github.com/foxcpp/go-imap-sql v0.4.1-0.20210718081250-7f103db60f22
+	github.com/foxcpp/go-mockdns v0.0.0-20201212160233-ede2f9158d15
 	github.com/foxcpp/go-mtasts v0.0.0-20191219193356-62bc3f1f74b8
 	github.com/go-ldap/ldap/v3 v3.4.3
 	github.com/go-sql-driver/mysql v1.6.0
@@ -72,3 +73,7 @@ require (
 	gopkg.in/ini.v1 v1.66.4 // indirect
 	gopkg.in/yaml.v3 v3.0.1
 )
+
+replace github.com/emersion/go-imap => github.com/foxcpp/go-imap v1.0.0-beta.1.0.20201001193006-5a1d05e53e2c
+
+replace github.com/emersion/go-imap-idle => github.com/foxcpp/go-imap-idle v0.0.0-20200829140055-32dc40172769
