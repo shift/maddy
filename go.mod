@@ -58,7 +58,12 @@ require (
 	golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a
 	golang.org/x/net v0.0.0-20210525063256-abc453219eb5
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
+	golang.org/x/sys v0.0.0-20211007075335-d3039528d8ac // indirect
 	golang.org/x/text v0.3.7
+	google.golang.org/api v0.58.0 // indirect
+	google.golang.org/genproto v0.0.0-20211011165927-a5fb3255271e // indirect
+	google.golang.org/grpc v1.41.0 // indirect
+	gopkg.in/ini.v1 v1.63.2 // indirect
 )
 
 replace github.com/emersion/go-imap => github.com/foxcpp/go-imap v1.0.0-beta.1.0.20220105164802-1e767d4cfd62
