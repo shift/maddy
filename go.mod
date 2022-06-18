@@ -47,15 +47,16 @@ require (
 	github.com/libdns/vultr v0.0.0-20211122184636-cd4cb5c12e51
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible
-	github.com/miekg/dns v1.1.42
-	github.com/minio/minio-go/v7 v7.0.12
-	github.com/pierrec/lz4 v2.6.0+incompatible // indirect
-	github.com/prometheus/client_golang v1.10.0
-	github.com/prometheus/common v0.20.0 // indirect
-	github.com/russross/blackfriday/v2 v2.1.0 // indirect
-	github.com/urfave/cli v1.22.5
+	github.com/mholt/acmez v1.0.2 // indirect
+	github.com/miekg/dns v1.1.46
+	github.com/minio/md5-simd v1.1.2 // indirect
+	github.com/minio/minio-go/v7 v7.0.23
+	github.com/minio/sha256-simd v1.0.0 // indirect
+	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
+	github.com/prometheus/client_golang v1.12.1
+	github.com/rs/xid v1.3.0 // indirect
 	github.com/urfave/cli/v2 v2.3.0
-	github.com/vultr/govultr/v2 v2.9.0 // indirect
+	github.com/vultr/govultr/v2 v2.14.1 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.7.0 // indirect
 	go.uber.org/zap v1.19.1
