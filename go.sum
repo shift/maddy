@@ -317,8 +317,6 @@ github.com/foxcpp/go-imap-mess v0.0.0-20230108134257-b7ec3a649613 h1:fw9OWfPxP1C
 github.com/foxcpp/go-imap-mess v0.0.0-20230108134257-b7ec3a649613/go.mod h1:P/O/qz4gaVkefzJ40BUtN/ZzBnaEg0YYe1no/SMp7Aw=
 github.com/foxcpp/go-imap-namespace v0.0.0-20200802091432-08496dd8e0ed h1:1Jo7geyvunrPSjL6F6D9EcXoNApS5v3LQaro7aUNPnE=
 github.com/foxcpp/go-imap-namespace v0.0.0-20200802091432-08496dd8e0ed/go.mod h1:Shows1vmkBWO40ChOClaUe6DUnZrsP1UPAuoWzIUdgQ=
-github.com/foxcpp/go-imap-sql v0.5.1-0.20230119225722-2c2868ce7ca7 h1:8TcyoV/oZqvpEjMxv6A7tVeYeJqSOI6WhtNIR4UmEmc=
-github.com/foxcpp/go-imap-sql v0.5.1-0.20230119225722-2c2868ce7ca7/go.mod h1:8uUTN2RRWZrETuA9pDvDr4SjV1hCvEYG2WOlXuupj+g=
 github.com/foxcpp/go-imap-sql v0.5.1-0.20230313080458-c0176dad679c h1:vqLBcLtG5lcXL2hifcsKjiUaljRukD8xHodVM2rZ+L4=
 github.com/foxcpp/go-imap-sql v0.5.1-0.20230313080458-c0176dad679c/go.mod h1:8uUTN2RRWZrETuA9pDvDr4SjV1hCvEYG2WOlXuupj+g=
 github.com/foxcpp/go-mockdns v0.0.0-20191216195825-5eabd8dbfe1f/go.mod h1:tPg4cp4nseejPd+UKxtCVQ2hUxNTZ7qQZJa7CLriIeo=
@@ -1165,8 +1163,8 @@ google.golang.org/grpc v1.48.0/go.mod h1:vN9eftEi1UMyUsIF80+uQXhHjbXYbm0uXoFCACu
 google.golang.org/grpc v1.49.0/go.mod h1:ZgQEeidpAuNRZ8iRrlBKXZQP1ghovWIVhdJRyCDK+GI=
 google.golang.org/grpc v1.50.0/go.mod h1:ZgQEeidpAuNRZ8iRrlBKXZQP1ghovWIVhdJRyCDK+GI=
 google.golang.org/grpc v1.50.1/go.mod h1:ZgQEeidpAuNRZ8iRrlBKXZQP1ghovWIVhdJRyCDK+GI=
-google.golang.org/grpc v1.52.3 h1:pf7sOysg4LdgBqduXveGKrcEwbStiK2rtfghdzlUYDQ=
-google.golang.org/grpc v1.52.3/go.mod h1:pu6fVzoFb+NBYNAvQL08ic+lvB2IojljRYuun5vorUY=
+google.golang.org/grpc v1.53.0 h1:LAv2ds7cmFV/XTS3XG1NneeENYrXGmorPxsBbptIjNc=
+google.golang.org/grpc v1.53.0/go.mod h1:OnIrk0ipVdj4N5d9IUoFUx72/VlD7+jUsHwZgwSMQpw=
 google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0/go.mod h1:6Kw0yEErY5E/yWrBtf03jp27GLLJujG4z/JK95pnjjw=
 google.golang.org/protobuf v0.0.0-20200109180630-ec00e32a8dfd/go.mod h1:DFci5gLYBciE7Vtevhsrf46CRTquxDuWsQurQQe4oz8=
 google.golang.org/protobuf v0.0.0-20200221191635-4d8936d0db64/go.mod h1:kwYJMbMJ01Woi6D6+Kah6886xMZcty6N08ah7+eCXa0=
